@@ -1,0 +1,250 @@
+/* ============================================= */
+/*                Base Styles                    */
+/* ============================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  color: #171717;
+}
+
+.container {
+  margin: 1.5em;
+}
+
+.section {
+  border-top: solid #00333c 1px;
+}
+
+.section h1 {
+  font-family: "Lora", serif;
+  font-size: 40px;
+  color: #00333c;
+}
+
+.section__content h2 {
+  font-weight: 500;
+  font-size: 32px;
+  color: #003b4d;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+}
+
+.section__content p {
+  padding-top: 0.5em;
+}
+
+.section__content a {
+  text-decoration-color: #1d8751;
+  transition: all 0.3s ease;
+}
+
+.section__content a:hover {
+  text-decoration: none;
+  color: #1d8751;
+}
+
+.section__content ul,
+.section__content ol {
+  margin-left: 1em;
+}
+
+.section__content ul li,
+.section__content ol li {
+  margin-bottom: 1em;
+}
+
+.section__content > ul > li {
+  list-style-type: none;
+}
+
+.section__content > ul > li::before {
+  content: "●";
+  color: #003b4d;
+}
+
+.section__content > ul > ul > li {
+  list-style-type: none;
+}
+
+.section__content > ul > ul > li::before {
+  content: "-";
+  color: #003b4d;
+}
+
+.section__content > ul > ul > ul > li {
+  list-style-type: none;
+}
+
+.section__content > ul > ul > ul > li::before {
+  content: "○";
+  color: #003b4d;
+}
+
+.section__content > ol {
+  list-style: none;
+  counter-reset: ol__counter__main;
+}
+
+.section__content > ol > li {
+  counter-increment: ol__counter__main;
+}
+
+.section__content > ol > li::before {
+  content: counter(ol__counter__main) ".";
+  color: #003b4d;
+}
+
+.section__content > ol > ol {
+  list-style-type: none;
+  counter-reset: ol__counter__nested;
+}
+
+.section__content > ol > ol > li {
+  counter-increment: ol__counter__nested;
+}
+
+.section__content > ol > ol > li::before {
+  content: counter(ol__counter__nested, lower-alpha) ".";
+  color: #003b4d;
+}
+
+.section__content > ol > ol > ol {
+  list-style-type: none;
+  counter-reset: ol__counter__nestedTwice;
+}
+
+.section__content > ol > ol > ol > li {
+  counter-increment: ol__counter__nestedTwice;
+}
+
+.section__content > ol > ol > ol > li::before {
+  content: counter(ol__counter__nestedTwice, lower-roman) ".";
+  color: #003b4d;
+}
+
+/* ============================================= */
+/*                Button Styles                  */
+/* ============================================= */
+
+.btn__primary {
+  font-weight: 500;
+  font-size: 16px;
+  color: #003b4d;
+  padding: 10px 25px;
+  border: 1px #003b4d solid;
+  border-radius: 4px;
+  background-color: white;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.btn__primary:hover {
+  background-color: #1d8751;
+  color: white;
+}
+
+.btn__wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+  width: 100%;
+}
+
+/* ============================================= */
+/*                Card Styles                    */
+/* ============================================= */
+
+.card {
+  width: 100%;
+  margin-top: 2em;
+  border: solid #00333c 1px;
+  position: relative;
+}
+
+img {
+  height: 290px;
+  width: 100%;
+}
+
+.card__content__container {
+  margin: 1.5em;
+}
+
+.card h3 {
+  font-weight: 700;
+}
+
+.card p {
+  margin-top: 1em;
+  margin-bottom: 2em;
+  padding-bottom: 2em;
+}
+
+.card__link {
+  font-size: 21px;
+  font-weight: 500;
+  text-decoration: none;
+  position: absolute;
+  left: 1.8em;
+  bottom: 1em;
+  background-image: linear-gradient(#1d8751, #1d8751),
+    linear-gradient(white, white);
+  background-size: 100% 2px, 100% 2px;
+  background-position: 0 100%, 100% 100%;
+  background-repeat: no-repeat, no-repeat;
+  transition: all 0.4s linear;
+}
+
+.card .card__link:hover {
+  background-size: 0 2px, 100% 2px;
+  opacity: 50%;
+  color: #171717;
+}
+
+/* ============================================= */
+/*                Media Queries                  */
+/* ============================================= */
+
+@media (min-width: 768px) {
+  .container {
+    margin: 1.5em 4em;
+  }
+
+  .section {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .section__headings {
+    flex-basis: 35%;
+  }
+
+  .section__content {
+    flex-basis: 65%;
+    padding: 1em;
+  }
+
+  .btn__wrapper {
+    flex-grow: 1;
+  }
+
+  .card__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-between;
+    width: 100%;
+  }
+
+  .card {
+    flex-basis: 46%;
+  }
+
+  .card:nth-child(odd) {
+    margin-right: 1em;
+  }
+}
